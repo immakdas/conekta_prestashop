@@ -934,7 +934,7 @@ class ConektaPaymentsPrestashop extends PaymentModule
         $state            = State::getNameById($address_delivery->id_state);
         $country          = Country::getIsoById($address_delivery->id_country);
         $carrier          = new Carrier((int) $cart->id_carrier);
-        $shp_price        = (int) number_format(($cart->getTotalShippingCost() * 100), 0);
+        $shp_price        = $cart->getTotalShippingCost();
         $shp_carrier      = "other";
         $shp_service      = "other";
         $discounts        = $cart->getCartRules();
